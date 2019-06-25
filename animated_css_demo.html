@@ -1,0 +1,335 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head xmlns:og="http://ogp.me/ns#"><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Animate.css demo by RRTW</title>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* Some of my personal css setting for this html */
+html *
+{
+  font-family: 'Muli', sans-serif !important;
+  font-size: 12px !important;
+}
+
+.relative, .relative:visited, .relative:active
+{text-decoration: none;}
+
+.relative:hover
+{border-bottom: 1px blue dotted;}
+
+body
+{padding: 20px;}
+
+#borde
+{
+  width: 100%;
+  border: 1px solid #EC008C;
+  text-align: center;
+  font-size: 16px;
+}
+
+#css1, #css2, #css3
+{font-size: 10px !important;}
+
+table
+{border: 1px solid #EC008C;}
+
+td
+{
+  border: 1px dotted #EC008C;
+  padding: 4px;
+}
+
+/* I use these 2 style to simulate <hr> tag, so that I can put some text on it. */
+.hr_text
+{
+  display: flex;
+  line-height: 1em;
+  color: gray;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.hr_text::before, .hr_text::after
+{
+  content: '';
+  display: inline-block;
+  flex-grow: 1;
+  margin-top: 0.5em;
+  height: 1px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border:none;
+  border-top:1px dashed #0066CC;
+}
+
+/* Author: https://codepen.io/skeddles/pen/PbROLK */
+input[type=radio]
+{
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label
+{
+  color: #A0A0A0;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+}
+
+input[type=radio]:checked + label
+{
+  color: #FFFFFF;
+  background: #EC008C;
+}
+
+label + input[type=radio] + label
+{border-left: solid 1px #EC008C;}
+
+.radio-group
+{
+  border: solid 1px #EC008C;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Author: https://codepen.io/benngagne/pen/bLBCd */
+.button
+{
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 6px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.pink
+{
+  color: #0066CC;
+  border: 1px #CF007BCF solid;
+}
+
+.pink:hover
+{
+  color: #fff;
+  background-color: #CF007BCF;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" integrity="sha256-a2tobsqlbgLsWs7ZVUGgP5IvWZsx8bTNQpzsqCSm5mk=" crossorigin="anonymous" />
+
+<script type="text/javascript">
+function show(obj, idx)
+{
+  var delay=document.querySelector('input[name="delay_set"]:checked').value;
+  var speed=document.querySelector('input[name="speed_set"]:checked').value;
+  var loop=document.querySelector('input[name="loop_set"]:checked').value;
+  var dura=document.querySelector('input[name="dura_set"]:checked').value;
+  var current='';
+
+  var css='animated '+obj+' '+delay+' '+speed+' '+loop;
+  var target=document.getElementById('show'+idx);
+  target.className=css;
+
+  var style='';
+  if(dura!=0)
+  {style='animation-duration:'+dura+'s';}
+  target.style.cssText=style;
+
+  current+='<br>';
+  current+='class=\"';
+  current+=css;
+  current+='\"<br><br>';
+  current+='style=\"';
+  current+=style;
+  current+='\"';
+  document.getElementById('css'+idx).innerHTML=current;
+}
+</script>
+</head>
+
+<body>
+Based on <a class="relative" href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a> v3.7.2<br>
+Button Style from Benjamin Gagne <a class="relative" href="https://codepen.io/benngagne/pen/bLBCd" target="_blank">codepen demo</a><br>
+Options radio button from Sam Keddy <a class="relative" href="https://codepen.io/skeddles/pen/PbROLK" target="_blank">codepen demo</a><br>
+Page font styled with Google Font <a class="relative" href="https://fonts.google.com/specimen/Muli" target="_blank">Muli</a>
+<br>
+<div class="hr_text">Animate.css simple demo by RRTW</div>
+<br>
+<table width="95%">
+  <tr>
+    <td valign="top">
+      <a href="javascript:show('bounce',1);" class="button pink">bounce</a>
+      <a href="javascript:show('flash',1);" class="button pink">flash</a>
+      <a href="javascript:show('pulse',1);" class="button pink">pulse</a>
+      <a href="javascript:show('rubberBand',1);" class="button pink">rubberBand</a>
+      <a href="javascript:show('shake',1);" class="button pink">shake</a>
+      <a href="javascript:show('headShake',1);" class="button pink">headShake</a>
+      <a href="javascript:show('swing',1);" class="button pink">swing</a>
+      <a href="javascript:show('tada',1);" class="button pink">tada</a>
+      <a href="javascript:show('wobble',1);" class="button pink">wobble</a>
+      <a href="javascript:show('jello',1);" class="button pink">jello</a>
+      <a href="javascript:show('hinge',1);" class="button pink">hinge</a>
+      <a href="javascript:show('jackInTheBox',1);" class="button pink">jackInTheBox</a>
+      <a href="javascript:show('rollIn',1);" class="button pink">rollIn</a>
+      <a href="javascript:show('rollOut',1);" class="button pink">rollOut</a>
+      <a href="javascript:show('heartBeat',1);" class="button pink">heartBeat</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('bounceIn',1);" class="button pink">bounceIn</a>
+      <a href="javascript:show('bounceInDown',1);" class="button pink">bounceInDown</a>
+      <a href="javascript:show('bounceInLeft',1);" class="button pink">bounceInLeft</a>
+      <a href="javascript:show('bounceInRight',1);" class="button pink">bounceInRight</a>
+      <a href="javascript:show('bounceInUp',1);" class="button pink">bounceInUp</a>
+      <a href="javascript:show('bounceOut',1);" class="button pink">bounceOut</a>
+      <a href="javascript:show('bounceOutDown',1);" class="button pink">bounceOutDown</a>
+      <a href="javascript:show('bounceOutLeft',1);" class="button pink">bounceOutLeft</a>
+      <a href="javascript:show('bounceOutRight',1);" class="button pink">bounceOutRight</a>
+      <a href="javascript:show('bounceOutUp',1);" class="button pink">bounceOutUp</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('fadeIn',1);" class="button pink">fadeIn</a>
+      <a href="javascript:show('fadeInDown',1);" class="button pink">fadeInDown</a>
+      <a href="javascript:show('fadeInDownBig',1);" class="button pink">fadeInDownBig</a>
+      <a href="javascript:show('fadeInLeft',1);" class="button pink">fadeInLeft</a>
+      <a href="javascript:show('fadeInLeftBig',1);" class="button pink">fadeInLeftBig</a>
+      <a href="javascript:show('fadeInRight',1);" class="button pink">fadeInRight</a>
+      <a href="javascript:show('fadeInRightBig',1);" class="button pink">fadeInRightBig</a>
+      <a href="javascript:show('fadeInUp',1);" class="button pink">fadeInUp</a>
+      <a href="javascript:show('fadeInUpBig',1);" class="button pink">fadeInUpBig</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('fadeOut',1);" class="button pink">fadeOut</a>
+      <a href="javascript:show('fadeOutDown',1);" class="button pink">fadeOutDown</a>
+      <a href="javascript:show('fadeOutDownBig',1);" class="button pink">fadeOutDownBig</a>
+      <a href="javascript:show('fadeOutLeft',1);" class="button pink">fadeOutLeft</a>
+      <a href="javascript:show('fadeOutLeftBig',1);" class="button pink">fadeOutLeftBig</a>
+      <a href="javascript:show('fadeOutRight',1);" class="button pink">fadeOutRight</a>
+      <a href="javascript:show('fadeOutRightBig',1);" class="button pink">fadeOutRightBig</a>
+      <a href="javascript:show('fadeOutUp',1);" class="button pink">fadeOutUp</a>
+      <a href="javascript:show('fadeOutUpBig',1);" class="button pink">fadeOutUpBig</a>
+    </td>
+    <td width="150px" valign="top">
+      <div id="borde"><div id="show1">Just LOOK at me !!!</div></div>
+      <span id="css1"></span>
+    </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+  <tr>
+    <td valign="top">
+      <a href="javascript:show('flip',2);" class="button pink">flip</a>
+      <a href="javascript:show('flipInX',2);" class="button pink">flipInX</a>
+      <a href="javascript:show('flipInY',2);" class="button pink">flipInY</a>
+      <a href="javascript:show('flipOutX',2);" class="button pink">flipOutX</a>
+      <a href="javascript:show('flipOutY',2);" class="button pink">flipOutY</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('lightSpeedIn',2);" class="button pink">lightSpeedIn</a>
+      <a href="javascript:show('lightSpeedOut',2);" class="button pink">lightSpeedOut</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('rotateIn',2);" class="button pink">rotateIn</a>
+      <a href="javascript:show('rotateInDownLeft',2);" class="button pink">rotateInDownLeft</a>
+      <a href="javascript:show('rotateInDownRight',2);" class="button pink">rotateInDownRight</a>
+      <a href="javascript:show('rotateInUpLeft',2);" class="button pink">rotateInUpLeft</a>
+      <a href="javascript:show('rotateInUpRight',2);" class="button pink">rotateInUpRight</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('rotateOut',2);" class="button pink">rotateOut</a>
+      <a href="javascript:show('rotateOutDownLeft',2);" class="button pink">rotateOutDownLeft</a>
+      <a href="javascript:show('rotateOutDownRight',2);" class="button pink">rotateOutDownRight</a>
+      <a href="javascript:show('rotateOutUpLeft',2);" class="button pink">rotateOutUpLeft</a>
+      <a href="javascript:show('rotateOutUpRight',2);" class="button pink">rotateOutUpRight</a>
+    </td>
+    <td width="150px" valign="top">
+      <div id="borde"><div id="show2">Just LOOK at me !!!</div></div>
+      <span id="css2"></span>
+    </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+  <tr>
+    <td valign="top">
+      <a href="javascript:show('slideInUp',3);" class="button pink">slideInUp</a>
+      <a href="javascript:show('slideInDown',3);" class="button pink">slideInDown</a>
+      <a href="javascript:show('slideInLeft',3);" class="button pink">slideInLeft</a>
+      <a href="javascript:show('slideInRight',3);" class="button pink">slideInRight</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('slideOutUp',3);" class="button pink">slideOutUp</a>
+      <a href="javascript:show('slideOutDown',3);" class="button pink">slideOutDown</a>
+      <a href="javascript:show('slideOutLeft',3);" class="button pink">slideOutLeft</a>
+      <a href="javascript:show('slideOutRight',3);" class="button pink">slideOutRight</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('zoomIn',3);" class="button pink">zoomIn</a>
+      <a href="javascript:show('zoomInUp',3);" class="button pink">zoomInUp</a>
+      <a href="javascript:show('zoomInDown',3);" class="button pink">zoomInDown</a>
+      <a href="javascript:show('zoomInLeft',3);" class="button pink">zoomInLeft</a>
+      <a href="javascript:show('zoomInRight',3);" class="button pink">zoomInRight</a>
+    </td>
+    <td valign="top">
+      <a href="javascript:show('zoomOut',3);" class="button pink">zoomOut</a>
+      <a href="javascript:show('zoomOutUp',3);" class="button pink">zoomOutUp</a>
+      <a href="javascript:show('zoomOutDown',3);" class="button pink">zoomOutDown</a>
+      <a href="javascript:show('zoomOutLeft',3);" class="button pink">zoomOutLeft</a>
+      <a href="javascript:show('zoomOutRight',3);" class="button pink">zoomOutRight</a>
+    </td>
+    <td width="150px" valign="top">
+      <div id="borde"><div id="show3">Just LOOK at me !!!</div></div>
+      <span id="css3"></span>
+    </td>
+  </tr>
+  <tr><td colspan="5"></td></tr>
+  <tr>
+    <td colspan="5">
+      OPTIONS :<br><br>
+      Delay X seconds to start animation<br>
+      <div class="radio-group">
+        <input type="radio" id="delay0" name="delay_set" value="" checked><label for="delay0">no delay</label>
+        <input type="radio" id="delay1" name="delay_set" value="delay-1s"><label for="delay1">1 second</label>
+        <input type="radio" id="delay3" name="delay_set" value="delay-3s"><label for="delay3">3 seconds</label>
+        <input type="radio" id="delay5" name="delay_set" value="delay-5s"><label for="delay5">5 seconds</label>
+      </div>
+      <br>
+      Animation speed<br>
+      <div class="radio-group">
+        <input type="radio" id="speed0" name="speed_set" value="" checked><label for="speed0">default</label>
+        <input type="radio" id="speed1" name="speed_set" value="slower"><label for="speed1">slower</label>
+        <input type="radio" id="speed2" name="speed_set" value="slow"><label for="speed2">slow</label>
+        <input type="radio" id="speed3" name="speed_set" value="fast"><label for="speed3">fast</label>
+        <input type="radio" id="speed4" name="speed_set" value="faster"><label for="speed4">faster</label>
+      </div>
+      <br>
+      Playback setting<br>
+      <div class="radio-group">
+        <input type="radio" id="loop0" name="loop_set" value="infinite" checked><label for="loop0">loop play</label>
+        <input type="radio" id="loop1" name="loop_set" value=""><label for="loop1">1 time play</label>
+      </div>
+      <br>
+      Duration<br>
+      <div class="radio-group">
+        <input type="radio" id="dura0" name="dura_set" value="0" checked><label for="dura0">default (1 second)</label>
+        <input type="radio" id="dura1" name="dura_set" value="2"><label for="dura1">2 seconds</label>
+        <input type="radio" id="dura2" name="dura_set" value="3"><label for="dura2">3 seconds</label>
+        <input type="radio" id="dura3" name="dura_set" value="5"><label for="dura3">5 seconds</label>
+      </div>
+      <br>
+      Options will take effect after <a href="javascript:void(0);" class="button pink">buttons</a> above been clicked again
+    </td>
+  </tr>
+</table>
+<br>
+<div class="hr_text">Page ends here</div>
+</body>
+</html>
